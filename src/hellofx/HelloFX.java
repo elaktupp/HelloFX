@@ -26,52 +26,17 @@ public class HelloFX extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        
+
         // Note: Root layout should contain only other layouts.
         
         // Main layout is root
         VBox root = new VBox();
+        
+        // Add text query layout to root
+        root.getChildren().add(new TextFieldsPartial());
 
-        // Query components
-        Label labelName = new Label("Name");
-        TextField fieldName = new TextField(); // single line, Area for multi
-        Label labelAddress = new Label("Address");
-        TextField fieldAddress = new TextField(); // single line, Area for multi
-        Label labelPhone = new Label("Phone");
-        TextField fieldPhone = new TextField(); // single line, Area for multi
-        
-        // Layout for Query components
-        VBox queries = new VBox();
-
-        // ("-fx-padding:0,10,0,10"); // :top,right,bottom,left
-        queries.setStyle("-fx-padding:10;-fx-spacing:10");
-        
-        // Add Query components to layout
-        queries.getChildren().add(labelName);
-        queries.getChildren().add(fieldName);
-        queries.getChildren().add(labelAddress);
-        queries.getChildren().add(fieldAddress);
-        queries.getChildren().add(labelPhone);
-        queries.getChildren().add(fieldPhone);
-        
-        // Add queries layout to root
-        root.getChildren().add(queries);
-        
-        // Layout for action Button components
-        HBox buttons = new HBox();
-
-        buttons.setStyle("-fx-padding:10;-fx-spacing:10");
-        
-        // Button components for actions
-        Button buttonClose = new Button("Close");
-        Button buttonSave = new Button("Save");
-        
-        // Add Buttons to layout
-        buttons.getChildren().add(buttonClose);
-        buttons.getChildren().add(buttonSave);
-        
         // Add buttons layout to root
-        root.getChildren().add(buttons);
+        root.getChildren().add(new ButtonsPartial());
         
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setTitle("IDEA");
