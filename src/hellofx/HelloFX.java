@@ -32,8 +32,6 @@ public class HelloFX extends Application {
         // Main layout is root
         VBox root = new VBox();
 
-        root.setStyle("-fx-padding:0,10,0,10"); // :top,right,bottom,left
-        
         // Query components
         Label labelName = new Label("Name");
         TextField fieldName = new TextField(); // single line, Area for multi
@@ -44,7 +42,8 @@ public class HelloFX extends Application {
         
         // Layout for Query components
         VBox queries = new VBox();
-      
+
+        // ("-fx-padding:0,10,0,10"); // :top,right,bottom,left
         queries.setStyle("-fx-padding:10;-fx-spacing:10");
         
         // Add Query components to layout
