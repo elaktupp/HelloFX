@@ -5,24 +5,20 @@
  */
 package hellofx;
 
-import java.awt.BasicStroke;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javax.swing.border.StrokeBorder;
 
 /**
  *
  * @author Ohjelmistokehitys
  */
 public class HelloFX extends Application {
+
+    private final TextFieldsPartial inputZone = new TextFieldsPartial();
+    private final TextAreaPartial textListZone = new TextAreaPartial();
+    private final ButtonsPartial buttonZone = new ButtonsPartial(textListZone,inputZone);
     
     @Override
     public void start(Stage primaryStage) {
@@ -30,17 +26,21 @@ public class HelloFX extends Application {
         // Note: Root layout should contain only other layouts.
         
         // Main layout is root
-        VBox root = new VBox();
+        BorderPane root = new BorderPane();
         
         // Add text query layout to root
-        root.getChildren().add(new TextFieldsPartial());
+        root.setCenter(inputZone);
 
         // Add buttons layout to root
-        root.getChildren().add(new ButtonsPartial());
+        root.setBottom(buttonZone);
         
-        Scene scene = new Scene(root, 300, 250);
+        // Add printing pane
+        root.setRight(textListZone);
+        
+        Scene scene = new Scene(root);
         primaryStage.setTitle("IDEA");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

@@ -29,10 +29,10 @@ public class TextFieldsPartial extends VBox {
     public TextFieldsPartial() {
         
         // ("-fx-padding:0,10,0,10"); // :top,right,bottom,left
-        // this.setStyle("-fx-padding:10;-fx-spacing:10");
+        this.setStyle("-fx-padding:10;-fx-spacing:10");
         
-        VBox.setMargin(this, new Insets(10,10,10,10));
-        
+        this.setMinWidth(100);
+
         // Add Query components to layout
         this.getChildren().add(labelName);
         this.getChildren().add(fieldName);
@@ -40,10 +40,14 @@ public class TextFieldsPartial extends VBox {
         this.getChildren().add(fieldAddress);
         this.getChildren().add(labelPhone);
         this.getChildren().add(fieldPhone);
-        
-        // Can (and must) use this as above
-        // queries.getChildren().add(labelName);
-        
-        
+       
+    }
+    
+    public UserInfo getUserInfo() {
+        UserInfo info = new UserInfo();
+        info.setName(fieldName.getText());
+        info.setAddress(fieldAddress.getText());
+        info.setPhone(fieldPhone.getText());
+        return info;
     }
 }
